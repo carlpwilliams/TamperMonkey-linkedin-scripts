@@ -12,7 +12,7 @@
     'use strict';
 
     const alwaysClickLoadMore = true;
-    const removeFromIndex=true;
+    const removeFromIndex=false;
 
     let joeDiv;
     if (!document.getElementById('joe-div')) {
@@ -70,6 +70,7 @@
     function identifyPersonAndList(person) {
         highlightItem(person);
         if (joeDiv.innerText.indexOf(person.innerText) === -1) {
+                person.onclick=()=>{person.remove();}
             if(removeFromIndex){
                 person.hider= window.setTimeout(()=>{person.remove(); window.clearTimeout(person.hider);},40000);
             }
