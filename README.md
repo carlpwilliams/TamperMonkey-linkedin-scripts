@@ -18,5 +18,5 @@ Use at your own risk, Feel free to contribute.
 Have fun!
 
 
-note: if it comes across a "load more comments" link, it automatically clicks it so that you get everyone involved. This can be annoying!
-To turn it off, comment out the <code>alwaysLoadMore();</code> line on line 74(ish)
+note: if it comes across a "load more comments" link, it automatically clicks it so that you get everyone involved. This can be annoying and chew up your bandwidth (I suppose)!
+Change the setting at the top of the script!
