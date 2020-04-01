@@ -71,7 +71,7 @@
         highlightItem(person);
         if (joeDiv.innerText.indexOf(person.innerText) === -1) {
             if(removeFromIndex){
-                person.hider= window.setTimeout(()=>{person.remove(); person.hider.clearTimeout();},40000);
+                person.hider= window.setTimeout(()=>{person.remove(); window.clearTimeout(person.hider);},40000);
             }
             joeDiv.appendChild(person);
 
