@@ -16,3 +16,7 @@ Use at your own risk, Feel free to contribute.
 5) save and reload linkedin!
 
 Have fun!
+
+
+note: if it comes across a "load more comments" link, it automatically clicks it so that you get everyone involved. This can be annoying!
+To turn it off, comment out the <code>alwaysLoadMore();</code> line on line 74(ish)
