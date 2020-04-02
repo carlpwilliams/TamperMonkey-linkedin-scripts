@@ -13,7 +13,10 @@
 
     const alwaysClickLoadMore = true;
     const removeFromIndex=false;
+    const include2nd = false;
+    const include3rd = true;
 
+    const closed=[];
     let joeDiv;
     if (!document.getElementById('joe-div')) {
         joeDiv = document.createElement("div");
@@ -56,12 +59,12 @@
 
     function identifyPeople() {
         document.querySelectorAll('.feed-shared-actor__title').forEach(item => {
-            if (item.innerText.indexOf('2nd') != -1 || item.innerText.indexOf('3rd') != -1) {
+            if ((include2nd===true && item.innerText.indexOf('2nd') != -1) || (include3rd ===true && item.innerText.indexOf('3rd') != -1)) {
                 identifyPersonAndList(item)
             }
         });
         document.querySelectorAll('.comments-post-meta__name').forEach(item => {
-            if (item.innerText.indexOf('2nd') != -1 || item.innerText.indexOf('3rd') != -1) {
+            if ((include2nd===true && item.innerText.indexOf('2nd') != -1) || (include3rd ===true && item.innerText.indexOf('3rd') != -1)) {
                 identifyPersonAndList(item);
             }
         });
@@ -69,8 +72,8 @@
 
     function identifyPersonAndList(person) {
         highlightItem(person);
-        if (joeDiv.innerText.indexOf(person.innerText) === -1) {
-                person.onclick=()=>{person.remove();}
+        if (joeDiv.innerText.indexOf(person.innerText) === -1 && closed.indexOf(person.innerText)===-1) {
+            person.onclick=()=>{closed.push(person.innerText); person.remove();}
             if(removeFromIndex){
                 person.hider= window.setTimeout(()=>{person.remove(); window.clearTimeout(person.hider);},40000);
             }
